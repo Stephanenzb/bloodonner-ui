@@ -1,5 +1,7 @@
 runtime: nodejs18
 handlers:
+  - url: /api/.*
+    script: auto
   - url: /.*
     static_files: build/index.html
     upload: build/index.html
