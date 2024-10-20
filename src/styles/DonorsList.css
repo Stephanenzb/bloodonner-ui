@@ -1,0 +1,47 @@
+.delete-button {
+    background-color: red; /* Couleur de fond rouge */
+    color: white;          /* Texte en blanc */
+    border: none;         /* Pas de bordure */
+    padding: 5px 10px;    /* Espacement intérieur */
+    cursor: pointer;       /* Curseur pointer */
+}
+
+.delete-button:hover {
+    background-color: darkred; /* Couleur plus sombre au survol */
+}
+
+.update-button {
+    background-color: blue; /* Couleur de fond bleue */
+    color: white;           /* Texte en blanc */
+    border: none;          /* Pas de bordure */
+    padding: 5px 10px;     /* Espacement intérieur */
+    cursor: pointer;        /* Curseur pointer */
+}
+
+.update-button:hover {
+    background-color: darkblue; /* Couleur plus sombre au survol */
+}
+.my-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; 
+}
+
+.table-header {
+    background-color: #3f51b5;
+    color: white;
+}
+.predict-button {
+    background-color: #4caf50;
+    color: white;
+}
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.update-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+

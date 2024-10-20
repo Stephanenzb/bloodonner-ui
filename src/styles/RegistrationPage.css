@@ -1,0 +1,70 @@
+.registration-page {
+    padding: 20px;
+  }
+  
+  .user-type-selector {
+    margin: 20px 0;
+  }
+  
+  .user-type-selector button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #d5eaef;
+    color: white;
+  }
+  
+  .user-type-selector button.active {
+    background-color: #b9cbcd;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .form-cube {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px; /* Pour s'assurer que les cubes ne deviennent pas trop petits */
+    border: 2px solid #ccc; /* Ajout de la bordure */
+  }
+  
+  /* Ajout d'un effet au survol */
+  .form-cube:hover {
+    border-color: #b9cbcd; /* Changer la couleur de la bordure au survol */
+  }
+  
+  
+  .form-cube h3 {
+    margin-top: 0;
+  }
+  
+  .form-cube label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .form-cube input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-cube button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b9cbcd;
+    color: white;
+  }
+  

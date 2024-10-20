@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.App-header {
+  background: linear-gradient(135deg, #b9cbcd, #d5eaef);
+  padding: 60px;
+  color: white;
+  border-bottom: 2px solid #d5eaef;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+.cta-button {
+  background-color: #b9cbcd;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #d5eaef;
+  transform: scale(1.05);
+}
+
+.App-main {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.info-section {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.App-footer {
+  background-color: #b9cbcd;
+  color: white;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+
+.header-title {
+  display: flex;
+  align-items: center;  /* Aligner le logo et le texte verticalement */
+  justify-content: center;  /* Centrer horizontalement le contenu */
+  margin: 0 auto;  /* Centrer le titre sur la page */
+  padding: 20px 0;  /* Ajouter un peu d'espace au-dessus et en-dessous */
+}
+
+.logo {
+  height: 75px;  /* Ajuster la taille du logo */
+  margin-right: 10px;  /* Ajouter de l'espace entre le logo et le texte */
+}

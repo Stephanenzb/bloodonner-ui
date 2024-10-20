@@ -1,0 +1,66 @@
+.home-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 30px;
+  }
+  
+  .dashboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  
+  .panel {
+    border: 2px solid black;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .panel h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+  
+  .points-panel .points {
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  
+  .appointment-panel .appointment-date {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .history-panel p {
+    margin: 5px 0;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid black;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .new-appointment-btn {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .donor-history-btn {
+    background-color: #0056b3;
+    color: white;
+  }
+  
