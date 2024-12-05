@@ -22,7 +22,7 @@ function AdminHome() {
           return;
       }
       try {
-          const response = await axios.get(`https://p2024-437514.ey.r.appspot.com/api/users/${email}`);
+          const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/users/${email}`);
           const userData = response.data.user;
           setAdminData(userData);
           setUsername(userData.username);
@@ -34,7 +34,7 @@ function AdminHome() {
     // Fonction pour récupérer tous les donneurs
     const fetchAllDonors = async () => {
       try {
-        const response = await axios.get('https://p2024-437514.ey.r.appspot.com/api/admin/donors'); 
+        const response = await axios.get('https://pa2024-443414.ey.r.appspot.com/api/admin/donors'); 
         const allDonorsData = response.data;
   
         console.log('Données reçues:', allDonorsData);
@@ -54,7 +54,7 @@ function AdminHome() {
     // Fonction pour récupérer les 3 meilleurs donneurs
     const fetchTopDonors = async () => {
     try {
-      const response = await axios.get('https://p2024-437514.ey.r.appspot.com/api/admin/top3-donors');
+      const response = await axios.get('https://pa2024-443414.ey.r.appspot.com/api/admin/top3-donors');
       setTopDonors(response.data); 
     } catch (error) {
       console.error('Erreur lors de la récupération des meilleurs donneurs', error);
@@ -108,6 +108,9 @@ function AdminHome() {
           </button>
           <button className="action-button" onClick={() => navigate('/manage-appointments')}>
             Gérer les RDV
+          </button>
+          <button className="action-button" onClick={() => navigate('/centers')}>
+            Voir les différents centres
           </button>
         </div>
 

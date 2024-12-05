@@ -35,7 +35,7 @@ function DonorHistoryForm () {
       }
   
       try {
-        const response = await axios.get(`https://p2024-437514.ey.r.appspot.com/api/users/${storedEmail}`);
+        const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/users/${storedEmail}`);
         const userData = response.data.user;
         console.log("Email utilisateur récupéré:", userData.email);
       } catch (error) {
@@ -88,7 +88,7 @@ const handleSubmit = async (e) => {
 
   try {
     const storedEmail = localStorage.getItem('email');
-    const response = await axios.put(`https://p2024-437514.ey.r.appspot.com/api/donors_history/${storedEmail}`, data, {
+    const response = await axios.put(`https://pa2024-443414.ey.r.appspot.com/api/donors_history/${storedEmail}`, data, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('token')}`,

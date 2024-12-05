@@ -24,7 +24,7 @@ function DonorHome() {
         }
 
         try {
-            const response = await axios.get(`https://p2024-437514.ey.r.appspot.com/api/users/${email}`);
+            const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/users/${email}`);
             const userData = response.data.user;
             setDonorData(userData);
             setPoints(userData.points || 0);
@@ -40,7 +40,7 @@ function DonorHome() {
           return;
       }
       try {
-          const response = await axios.get(`https://p2024-437514.ey.r.appspot.com/api/appointment/${email}`);
+          const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/appointment/${email}`);
           const userAppointment = response.data.user;
           setNextAppointmentStatus(userAppointment.status);
           setNextAppointmentDate(userAppointment.dateRendezVous);
@@ -108,6 +108,12 @@ const donorHistory = donorData.donor_history || {};
         </Link>
         <Link to="/donor-history" className="btn donor-history-btn">
           Renseigner votre historique de donateur
+        </Link>
+        <Link to="/analyses" className="btn donor-history-btn">
+          Renseigner vos informations personnelles
+        </Link>
+        <Link to="/bloodprelevements" className="btn donor-history-btn">
+          Faire un prélèvement sanguin
         </Link>
       </div>
 

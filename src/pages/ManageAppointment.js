@@ -48,7 +48,7 @@ const ManageAppointment = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await axios.get('https://p2024-437514.ey.r.appspot.com/api/admin/appointments');
+            const response = await axios.get('https://pa2024-443414.ey.r.appspot.com/api/admin/appointments');
             setRecords(response.data.hits.hits.map(hit => hit._source));
         } catch (error) {
             console.error("Erreur lors de la récupération des rendez-vous :", error);
@@ -58,7 +58,7 @@ const ManageAppointment = () => {
     // Suppression d'un rendez-vous
     const handleDelete = async (row) => {
         try {
-            await axios.delete(`https://p2024-437514.ey.r.appspot.com/api/appointments/${row.donorEmail}`); 
+            await axios.delete(`https://pa2024-443414.ey.r.appspot.com/api/appointments/${row.donorEmail}`); 
             setRecords(records.filter(record => record.donorEmail !== row.donorEmail)); 
             alert(`Rendez-vous de ${row.donorEmail} supprimé avec succès`);
         } catch (error) {
@@ -109,7 +109,7 @@ const handleUpdate = (row) => {
 // Fonction pour mettre à jour le rendez-vous
 const updateAppointment = async (donorEmail, updatedData) => {
     try {
-        const response = await axios.put(`https://p2024-437514.ey.r.appspot.com/api/appointments/${donorEmail}`, updatedData);
+        const response = await axios.put(`https://pa2024-443414.ey.r.appspot.com/api/appointments/${donorEmail}`, updatedData);
         return response.data;
     } catch (error) {
         console.error("Erreur lors de la mise à jour :", error);

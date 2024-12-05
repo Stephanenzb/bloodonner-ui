@@ -26,7 +26,7 @@ const RegistrationPage = () => {
 
     try {
       const response = await axios.post(
-        'https://p2024-437514.ey.r.appspot.com/api/register', 
+        'https://pa2024-443414.ey.r.appspot.com/api/register', 
         formData, 
         { headers: { 'Content-Type': 'application/json' } }
       );      
@@ -45,7 +45,7 @@ const handleLogin = async (e) => {
   e.preventDefault();
 
   // Construire l'URL avec les paramètres de requête
-  const loginUrl = `https://p2024-437514.ey.r.appspot.com/api/login?email=${encodeURIComponent(loginEmail)}&password=${encodeURIComponent(loginPassword)}`;
+  const loginUrl = `https://pa2024-443414.ey.r.appspot.com/api/login?email=${encodeURIComponent(loginEmail)}&password=${encodeURIComponent(loginPassword)}`;
 
   try {
     const response = await axios.post(loginUrl, null, {

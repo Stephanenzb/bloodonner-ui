@@ -27,7 +27,7 @@ function AppointmentForm() {
       }
   
       try {
-        const response = await axios.get(`https://p2024-437514.ey.r.appspot.com/api/users/${storedEmail}`);
+        const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/users/${storedEmail}`);
         const userData = response.data.user;
         console.log("Email utilisateur récupéré:", userData.email);
       } catch (error) {
@@ -60,7 +60,7 @@ function AppointmentForm() {
 
     try {
       console.log({ dateRendezVous, timeRendezVous, email });
-      const response = await axios.post(`https://p2024-437514.ey.r.appspot.com/api/${email}/appointments`, appointmentData);
+      const response = await axios.post(`https://pa2024-443414.ey.r.appspot.com/api/${email}/appointments`, appointmentData);
       setSuccessMessage('Rendez-vous réservé avec succès !');
       setError('');
       setOpenSnackbar(true);

@@ -62,7 +62,7 @@ const DonorsList = () => {
         {
             name: <span style={{ fontWeight: 'bold', textTransform: 'uppercase' }}>Prédiction</span>,
             cell: row => (
-                <button onClick={() => handleUpdate(row)} className="predict-button">Prédire un don à venir</button>
+                <button onClick={() => handlePredict(row)} className="predict-button">Prédire un don à venir</button>
             )
             
         },
@@ -93,7 +93,7 @@ const DonorsList = () => {
 
     const fetchDonors = async () => {
         try {
-            const response = await axios.get('https://p2024-437514.ey.r.appspot.com/api/admin/donors');
+            const response = await axios.get('http://localhost:8000/api/admin/donors');
             
             // Vérifie la structure de la réponse
             console.log(response.data); 
@@ -115,7 +115,7 @@ const DonorsList = () => {
     // Suppression de ligne
     const handleDelete = async (email) => {
         try {
-            await axios.delete(`https://p2024-437514.ey.r.appspot.com/api/donors/${email}`);
+            await axios.delete(`https://pa2024-443414.ey.r.appspot.com/api/donors/${email}`);
             // Filtrer l'utilisateur supprimé
             setRecords(records.filter(record => record.email !== email));
             alert(`Donneur avec l'email ${email} supprimé`);
@@ -159,7 +159,7 @@ const DonorsList = () => {
     // Fonction pour mettre à jour le donneur
     const updateDonor = async (email, updatedData) => {
         try {
-            const response = await axios.put(`https://p2024-437514.ey.r.appspot.com/api/donors/${email}`, {
+            const response = await axios.put(`https://pa2024-443414.ey.r.appspot.com/api/donors/${email}`, {
                 ...updatedData,
                 monthsSinceFirstDonation: calculateMonthsSince(updatedData.firstDonationDate),
                 monthsSinceLastDonation: calculateMonthsSince(updatedData.lastDonationDate),
@@ -170,22 +170,71 @@ const DonorsList = () => {
             throw error;
         }
     };
-    
 
+    const handlePredict = async (row) => {
+        // Créez l'objet predictionData à partir des données de la ligne
+        const predictionData = {
+            "Months since First Donation": row.donor_history ? row.donor_history.monthsSinceFirstDonation : 0,
+            "Months since Last Donation": row.donor_history ? row.donor_history.monthsSinceLastDonation : 0,
+            "Number of Donations": row.donor_history ? row.donor_history.numberOfDonations : 0,
+            "Total Volume Donated (c.c.)": row.donor_history ? row.donor_history.totalVolumeDonated : 0,
+        };
+    
+        // Ajoutez un log pour vérifier les données envoyées
+        console.log('Données envoyées pour la prédiction:', predictionData);
+        
+        // Ajoutez des logs pour chaque valeur
+        console.log('Months since First Donation:', predictionData["Months since First Donation"]);
+        console.log('Months since Last Donation:', predictionData["Months since Last Donation"]);
+        console.log('Number of Donations:', predictionData["Number of Donations"]);
+        console.log('Total Volume Donated (c.c.):', predictionData["Total Volume Donated (c.c.)"]);
+    
+        try {
+            // Faites l'appel à l'API de prédiction
+            const response = await axios.post('https://pa2024-443414.ey.r.appspot.com/api/predict', predictionData);
+        
+            // Vérifiez si la réponse contient les données attendues
+            if (response && response.data) {
+                console.log('Prediction:', response.data);
+        
+                // Affichez la classe et la probabilité
+                alert(`L'utilisateur ${row.username} a une probabilité de : ${response.data.probability} % de faire un don. On prédit donc : ${response.data.prediction}.`);
+            } else {
+                alert('La réponse de l\'API est invalide.');
+            }
+        
+        } catch (error) {
+            if (error.response) {
+                console.error('Erreur du serveur:', error.response.status, error.response.data);
+                alert(`Erreur du serveur : ${error.response.status}. ${error.response.data}`);
+            } else if (error.request) {
+                console.error('Aucune réponse reçue:', error.request);
+                alert('Aucune réponse du serveur. Veuillez vérifier la connexion.');
+            } else {
+                console.error('Erreur:', error.message);
+                alert('Une erreur s\'est produite lors de la récupération de la prédiction.');
+            }
+        }
+    };
+    
+    
+    
     return (
-        <div className='container mt-5'>
-            <DataTable 
-                columns={columns}
-                data={records}
-                fixedHeader
-                pagination
-            />
-            <div className="home-button-container">
-                <button onClick={() => navigate('/admin-home')} className="home-button">
-                    Accueil
-                </button>
-            </div>
-        </div>
+        <div className="my-table-container" style={{ maxHeight: '500px', overflowY: 'scroll' }}>
+        <DataTable 
+            columns={columns}
+            data={records}
+            pagination 
+            paginationPerPage={20} 
+            paginationRowsPerPageOptions={[10, 20, 50, 100]} 
+        />
+    <div className="home-button-container">
+        <button onClick={() => navigate('/admin-home')} className="home-button">
+            Accueil
+        </button>
+    </div>
+</div>
+
     );
 };
 
