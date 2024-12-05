@@ -26,10 +26,6 @@
     border-collapse: collapse;
     text-align: center; 
 }
-.my-table {
-    max-height: none; /* Assure que toutes les lignes sont visibles */
-    overflow: auto;   /* Ajoute un défilement si nécessaire */
-}
 
 .table-header {
     background-color: #3f51b5;
@@ -49,3 +45,7 @@
 }
 
 
+.my-table-container {
+    max-height: 500px; /* Définissez une hauteur maximale */
+    overflow-y: auto;  /* Permet le défilement vertical */
+}
