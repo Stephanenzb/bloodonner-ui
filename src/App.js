@@ -12,7 +12,11 @@ import AppointmentForm from './pages/AppointmentForm';
 import ProtectedRoute from './ProtectedRoute';
 import Unauthorized from './pages/Unauthorized'
 import { isAuthenticated } from './ProtectedRoute'; 
-import logo from "./images/logo.png"
+import logo from "./images/logo.png";
+import CentersMap from "./pages/CentersMap";
+import AnalyseForm from './pages/Analyse';
+import BloodPrelevement from './pages/BloodPrelevement';
+import DonorsBloodStats from './pages/DonorsBloodStats' 
 const userRole = localStorage.getItem('userRole');
 
 
@@ -35,10 +39,16 @@ function App() {
               <Route path="/home" element={<ProtectedRoute requiredRole="donor" element={<DonorHome />} />} />
               <Route path="/donor-history" element={<ProtectedRoute requiredRole="donor" element={<DonorHistory />} />} />
               <Route path="/appointment-form" element={<ProtectedRoute requiredRole="donor" element={<AppointmentForm />} />} />
+              <Route path="/analyses" element={<ProtectedRoute requiredRole="donor" element={<AnalyseForm />} />}/>  
+              <Route path="/bloodprelevements" element={<ProtectedRoute requiredRole="donor" element={<BloodPrelevement />} />} />
               <Route path="/admin-home" element={<ProtectedRoute requiredRole="admin" element={<AdminHome />} />} />
               <Route path="/donor-list" element={<ProtectedRoute requiredRole="admin" element={<DonorsList />} />} />
               <Route path="/manage-appointments" element={<ProtectedRoute requiredRole="admin" element={<ManageAppointment />} />} />
-              <Route path="/unauthorized"                       element={<Unauthorized />} />  
+              <Route path="/centers"  element={<ProtectedRoute requiredRole="admin" element={<CentersMap />}  />}/>  
+              <Route path="/bloodstats"  element={<ProtectedRoute requiredRole="admin" element={<DonorsBloodStats />}  />}/>  
+              <Route path="/unauthorized"                       element={<Unauthorized />} />
+
+
           </Routes>
 
 
