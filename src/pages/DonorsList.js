@@ -93,7 +93,7 @@ const DonorsList = () => {
 
     const fetchDonors = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/api/admin/donors');
+            const response = await axios.get('https://my-app-1007139059424.europe-west3.run.app/api/admin/donors');
             
             // Vérifie la structure de la réponse
             console.log(response.data); 
@@ -115,7 +115,7 @@ const DonorsList = () => {
     // Suppression de ligne
     const handleDelete = async (email) => {
         try {
-            await axios.delete(`https://pa2024-443414.ey.r.appspot.com/api/donors/${email}`);
+            await axios.delete(`https://my-app-1007139059424.europe-west3.run.app/api/donors/${email}`);
             // Filtrer l'utilisateur supprimé
             setRecords(records.filter(record => record.email !== email));
             alert(`Donneur avec l'email ${email} supprimé`);
@@ -159,7 +159,7 @@ const DonorsList = () => {
     // Fonction pour mettre à jour le donneur
     const updateDonor = async (email, updatedData) => {
         try {
-            const response = await axios.put(`https://pa2024-443414.ey.r.appspot.com/api/donors/${email}`, {
+            const response = await axios.put(`https://my-app-1007139059424.europe-west3.run.app/api/donors/${email}`, {
                 ...updatedData,
                 monthsSinceFirstDonation: calculateMonthsSince(updatedData.firstDonationDate),
                 monthsSinceLastDonation: calculateMonthsSince(updatedData.lastDonationDate),
@@ -191,7 +191,7 @@ const DonorsList = () => {
     
         try {
             // Faites l'appel à l'API de prédiction
-            const response = await axios.post('https://pa2024-443414.ey.r.appspot.com/api/predict', predictionData);
+            const response = await axios.post('https://my-app-1007139059424.europe-west3.run.app/api/predict', predictionData);
         
             // Vérifiez si la réponse contient les données attendues
             if (response && response.data) {

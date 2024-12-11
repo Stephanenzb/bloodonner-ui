@@ -24,7 +24,7 @@ function DonorHome() {
         }
 
         try {
-            const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/users/${email}`);
+            const response = await axios.get(`https://my-app-1007139059424.europe-west3.run.app/api/users/${email}`);
             const userData = response.data.user;
             setDonorData(userData);
             setPoints(userData.points || 0);
@@ -40,7 +40,7 @@ function DonorHome() {
           return;
       }
       try {
-          const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/appointment/${email}`);
+          const response = await axios.get(`https://my-app-1007139059424.europe-west3.run.app/api/appointment/${email}`);
           const userAppointment = response.data.user;
           setNextAppointmentStatus(userAppointment.status);
           setNextAppointmentDate(userAppointment.dateRendezVous);

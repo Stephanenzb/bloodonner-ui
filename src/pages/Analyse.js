@@ -42,7 +42,7 @@ function AnalyseForm() {  // Assure-toi de passer l'email de l'utilisateur en pr
 
     try {
       // Envoie de la requête PUT à l'API pour mettre à jour les données dans Elasticsearch
-      const response = await axios.put(`http://localhost:8000/api/update_blood_stats/${email}`, data, {
+      const response = await axios.put(`https://my-app-1007139059424.europe-west3.run.app/api/update_blood_stats/${email}`, data, {
         headers: {
           'Content-Type': 'application/json',
         },

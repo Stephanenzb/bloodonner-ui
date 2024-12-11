@@ -24,7 +24,7 @@ function BloodPrelevement () {
             }
 
             try {
-                const response = await axios.get(`https://pa2024-443414.ey.r.appspot.com/api/users/${email}`);
+                const response = await axios.get(`https://my-app-1007139059424.europe-west3.run.app/api/users/${email}`);
                 const userData = response.data.user;
                 setDonorData(userData);
             } catch (error) {
@@ -44,7 +44,7 @@ function BloodPrelevement () {
         const email = localStorage.getItem('email'); 
 
         try {
-            const response = await axios.put(`http://localhost:8000/api/BloodPrelevement/${email}`, {
+            const response = await axios.put(`https://my-app-1007139059424.europe-west3.run.app/api/BloodPrelevement/${email}`, {
                 blood_test_data: { /* vos données de test sanguin */ }
             });
             setGeneratedData(response.data.data); // Mettez à jour les données générées

@@ -19,7 +19,7 @@ const CentersMap = () => {
     // Appel API pour récupérer les centres
     const fetchCenters = async () => {
         try {
-          const response = await fetch("http://localhost:8000/api/centers");
+          const response = await fetch("https://my-app-1007139059424.europe-west3.run.app/api/centers");
           const data = await response.json();
       
           console.log("Données API :", data); // Affichez les données reçues

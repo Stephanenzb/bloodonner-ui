@@ -183,7 +183,7 @@ const DonorsBloodStats = () => {
 
     const fetchDonors = async () => {
         try {
-            const response = await axios.get('https://pa2024-443414.ey.r.appspot.com/api/admin/donors');
+            const response = await axios.get('https://my-app-1007139059424.europe-west3.run.app/api/admin/donors');
             
             // Vérifie la structure de la réponse et met à jour l'état
             console.log('Réponse API :', response.data);
@@ -230,7 +230,7 @@ const DonorsBloodStats = () => {
             };
             
 
-            const response = await axios.post('https://pa2024-443414.ey.r.appspot.com/api/diseasePrediction', predictionData);
+            const response = await axios.post('https://my-app-1007139059424.europe-west3.run.app/api/diseasePrediction', predictionData);
                 const predictions = response.data.prediction;
             
                 
